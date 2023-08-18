@@ -10,12 +10,14 @@ public class MovimientoPersonaje : MonoBehaviour
     public Vector3 posicionInicio;
     private Rigidbody2D cuerpoRigido;
     private Animator animaciones;
-
+    private AudioSource audioSource;
+    public AudioClip audioClipmuerte;
     void Awake()
     {
         cuerpoRigido = GetComponent<Rigidbody2D>();   
         animaciones = GetComponent<Animator>();
         posicionInicio = this.transform.position;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -27,6 +29,7 @@ public class MovimientoPersonaje : MonoBehaviour
         {
             cuerpoRigido.AddForce(new Vector2(0f, fuerzaSalto), ForceMode2D.Impulse);
             enElsuelo = false;
+            audioSource.Play();
         }
 
         if (movimientoHorizontal > 0)
@@ -46,7 +49,11 @@ public class MovimientoPersonaje : MonoBehaviour
         enElsuelo = collision.gameObject.CompareTag("Suelo");
 
         if (collision.gameObject.CompareTag("Morir"))
+        {
+            audioSource.PlayOneShot(audioClipmuerte, 1f);   
             Reinicio();
+        }
+        
     }
 
     void Reinicio()
