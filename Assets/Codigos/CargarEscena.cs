@@ -13,7 +13,7 @@ public class CargarEscena : MonoBehaviour
 
     public void Cargar()
     {
-        StartCoroutine(CargarAsynchronously(PlayerPrefs.GetString("Escena")));
+        StartCoroutine(CargarAsynchronously(PlayerPrefs.GetString("Nivel2")));
     }
 
     public void Cargar(string valor)
