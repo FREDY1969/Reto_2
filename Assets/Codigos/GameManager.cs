@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
         if (scoreText != null)
         {
             scoreText.text = "Puntos: " + score.ToString();
+            
         }
     }
 }
