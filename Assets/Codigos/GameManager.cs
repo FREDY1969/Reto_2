@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
     private int score = 0;
-
-    public Text scoreText;
+    public TMP_Text scoreText;
+    //public Text scoreText;
 
     private void Awake()
     {
